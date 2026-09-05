@@ -27,6 +27,8 @@ or workspace, to be bugs in my own verifiers or grading heuristics — not the m
 one *under-credited* the model. Each was caught, root-caused, and fixed; see "Verifier
 hygiene" below.
 
+**Every task is a small, frozen fixture** (one function to a few files). Nothing here tests a production-scale codebase, and the behaviours that held small are the ones most likely to break at scale. Large-codebase behaviour is the #1 unmeasured gap and a stated condition on the GO. With that caveat:
+
 That is the headline, and I'm reporting it as such rather than manufacturing a weaker
 "gotcha" to have something to point at. The suite, the methodology, and the discipline of
 re-checking automated verdicts against raw evidence are the deliverable this round.

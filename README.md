@@ -23,6 +23,14 @@ launch call." Built for the **Product Manager — Claude Code Model Performance*
 **16 categories of adversarial pressure · ~130 real `claude -p` runs · no model capability
 weakness held up under inspection.**
 
+> **Scope caveat, stated up front:** every task is a *small, frozen fixture* — one
+> function or a handful of files. Nothing here exercises a production-scale codebase
+> (hundreds of files, real frameworks, real load). The behaviours that held here —
+> constraint retention, finding every call site, tight diffs, efficient algorithms —
+> are exactly the ones most likely to degrade at scale, where the model can't hold the
+> whole system in context. **Large-codebase behaviour is untested and is the #1 gap**
+> (`04-eval-roadmap.md` P1) and a condition on the GO recommendation.
+
 | # | Category | Result |
 |---|---|---|
 | 1 | Schema-change conventions | Matches an explicit spec, a repeated convention, or a dependent file. 39 runs. |
