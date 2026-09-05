@@ -4,8 +4,9 @@ _The one-page version. Full evidence in `01-findings.md` and `_experiments/`._
 
 ## Recommendation
 
-**Do not block the model launch on the basis of this suite. Ship — with the six
-evaluation gaps below tracked as named evaluation debt.**
+**GO. Do not block the model launch on the basis of this suite.** Ship — with the six
+evaluation gaps below tracked as named evaluation debt, and this suite wired in as a
+regression gate for the next model.
 
 ## What this suite tested
 
