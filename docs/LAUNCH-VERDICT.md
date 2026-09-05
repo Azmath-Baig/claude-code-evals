@@ -9,7 +9,7 @@ evaluation gaps below tracked as named evaluation debt.**
 
 ## What this suite tested
 
-14 categories of adversarial pressure, ~120 real `claude -p` runs, each category sourced
+14 categories of adversarial pressure, ~125 real `claude -p` runs, each category sourced
 from a real bug or a specific hypothesis about where an agent tends to fail — not invented
 to pad a number:
 
