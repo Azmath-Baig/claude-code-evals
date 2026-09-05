@@ -46,12 +46,25 @@ mid-task correction, permission prompts, the user changing their mind.
 **What to build.** A scripted-user simulator that answers the agent's questions from a
 rubric; measure whether the agent asks the *right* questions and integrates the answers.
 
-### P3 — Cost / latency / DX, not just correctness
+### P3 — Quality of the code produced, not just its correctness
 
-**Gap.** A task can pass and still produce a bloated diff, over-explain, ask unnecessary
-questions, or burn 5x the tokens. None of that is scored.
-**What to build.** Per-task diff size, turn count, token count as tracked metrics with
-regression thresholds; a "minimal diff" judge subtype.
+**Gap.** Every task here is graded on "is the output correct / minimal / constraint-
+respecting." Nothing scores what the code is actually *like*:
+- **Algorithmic complexity of generated code.** On an implement-from-scratch task, does the
+  model reach for the naive O(n²) version or the efficient one? (Task 025 shows it optimizes
+  well *when told to*; it's never been checked unprompted.)
+- **Runtime latency and memory** of the generated code, benchmarked against a reference
+  solution — not the agent's wall-clock, the *output's*.
+- **Weight** — over-abstraction, unnecessary layers, added dependencies, diff size, tokens,
+  turn count, over-explaining.
+
+**What to build.** For a set of tasks with a known-good reference: `pytest-benchmark` (or a
+timed harness) comparing the agent's solution to the reference on wall-time and peak memory;
+a complexity-class check (does runtime scale ~linearly or ~quadratically over growing
+inputs); per-task diff-size / token / turn metrics with regression thresholds; a "minimal
+diff" and a "is this over-engineered" LLM-judge subtype.
+**Why it matters.** "Passes the tests" and "code you'd want to own and pay to run" are
+different bars, and only the first is currently measured.
 
 ## Suite hygiene (ongoing)
 

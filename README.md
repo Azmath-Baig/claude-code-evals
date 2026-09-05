@@ -66,8 +66,8 @@ cover (ranked in [`docs/04-eval-roadmap.md`](docs/04-eval-roadmap.md)):
 1. **Open-ended discovery** — finding problems nobody specified (tasks 037 is a first pass; needs a false-positive rate, not just a hit rate).
 2. **Engineering judgment** — choosing the right tradeoff among viable options (task 036 is a first pass).
 3. **Long-horizon degradation** — 20–30 turns on a several-hundred-file codebase, requirements in genuine tension.
-4. **Developer experience** — interruption, correction, trust, recovery; diff size and token count as tracked metrics.
-5. **Cost / value** — does extra reasoning actually produce better outcomes.
+4. **Quality of the generated code** — not just correct, but efficient: does it write the O(n²) version? runtime/memory of the output benchmarked vs a reference; over-abstraction; diff size.
+5. **Developer experience & cost/value** — interruption, correction, recovery; does extra reasoning actually produce better outcomes.
 6. **Interactive (non-headless) sessions** — the product is a conversation; everything here is `claude -p`.
 
 ## Run it yourself
