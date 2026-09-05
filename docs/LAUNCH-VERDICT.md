@@ -10,7 +10,7 @@ regression gate for the next model.
 
 ## What this suite tested
 
-14 categories of adversarial pressure, ~125 real `claude -p` runs, each category sourced
+16 categories of adversarial pressure, ~130 real `claude -p` runs, each category sourced
 from a real bug or a specific hypothesis about where an agent tends to fail — not invented
 to pad a number:
 
@@ -20,11 +20,12 @@ degradation under "optimize but keep behavior equivalent" · inconsistent invari
 enforcement · long-horizon constraint survival (7 unreminded turns) · conflicting sources
 of truth · a Windows subprocess pitfall from this project's own build · pushback on
 directives a senior engineer would question · open-ended judgment (pick one of three
-viable implementations) · discovery ("what breaks in production", no rubric).
+viable implementations) · discovery ("what breaks in production", no rubric) · code
+optimality (implement from scratch — O(n) or O(n²)?) · a 12-rule business-logic engine.
 
 ## What it found
 
-1. **No stable, reproducible model capability weakness in any of the 14** — including the
+1. **No stable, reproducible model capability weakness in any of the 16** — including the
    two open-ended categories a reviewer pushed for (pick one of three viable
    implementations; "what breaks in production" with no rubric). Where I predicted a
    failure, built a controlled task, and ran it 3×+, the model held. On the pushback

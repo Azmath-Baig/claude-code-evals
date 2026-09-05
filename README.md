@@ -1,6 +1,6 @@
 # claude-code-evals
 
-**I tried fourteen ways to break Claude Code. The biggest failures weren't Claude's.**
+**I tried sixteen ways to break Claude Code. The biggest failures weren't Claude's.**
 
 An agentic evaluation suite built the way a Product Manager for model performance has to
 approach it — not "can it write code," but "can I trust an evaluation enough to make a
@@ -20,7 +20,7 @@ launch call." Built for the **Product Manager — Claude Code Model Performance*
 
 ## The result
 
-**14 categories of adversarial pressure · ~125 real `claude -p` runs · no model capability
+**16 categories of adversarial pressure · ~130 real `claude -p` runs · no model capability
 weakness held up under inspection.**
 
 | # | Category | Result |
@@ -33,6 +33,8 @@ weakness held up under inspection.**
 | 11 | Windows subprocess trap (from this project's own build) | Produced a more defensive fix than my reference. |
 | 12 | Pushback on directives a senior would question | Warned on 2, **declined 3** (money-path guard, exception-swallow, hardcoded secret) with a safer alternative. |
 | 13–14 | Judgment (pick 1 of 3 viable implementations) · discovery ("what breaks in prod", no rubric) | Caught the non-obvious answer (all 3 rate limiters break under load balancing); found the money-path double-charge. |
+| 15 | Code optimality — implement from scratch, does it write O(n²) or O(n)? | Wrote `list(dict.fromkeys())` and an O(n) frequency scan — not the naive nested loop. Verified by a runtime-scaling probe. |
+| 16 | Business logic — a 12-rule discount engine (stacking, price floor, lifetime cap, ordering, rounding) | **12/12**, including "percent applies to the reduced total" and cap/floor biting the same discount. |
 
 Each category came from a real bug or a specific theory of failure — not filler.
 Full evidence: [`docs/01-findings.md`](docs/01-findings.md) and [`docs/_experiments/`](docs/_experiments/).
@@ -52,6 +54,8 @@ That changed the question from **"can I break Claude?"** to **"can I trust this 
 to make a launch decision?"** — and the honest answer, at ~125 runs, is that the measurement
 system was the weaker component.
 
+(Two of those five, and the newest category, surfaced *after* the reviews that scored this — the pattern held.)
+
 ## Launch verdict
 
 **GO — do not block the launch on this suite.** Track the six things it under-measures as
@@ -66,7 +70,7 @@ cover (ranked in [`docs/04-eval-roadmap.md`](docs/04-eval-roadmap.md)):
 1. **Open-ended discovery** — finding problems nobody specified (tasks 037 is a first pass; needs a false-positive rate, not just a hit rate).
 2. **Engineering judgment** — choosing the right tradeoff among viable options (task 036 is a first pass).
 3. **Long-horizon degradation** — 20–30 turns on a several-hundred-file codebase, requirements in genuine tension.
-4. **Quality of the generated code** — not just correct, but efficient: does it write the O(n²) version? runtime/memory of the output benchmarked vs a reference; over-abstraction; diff size.
+4. **Quality of the generated code** — first pass done (tasks 038–040: it wrote the optimal algorithm, 12/12 on the rule engine). Still to build: runtime/peak-memory benchmarked vs a reference; an "over-engineered?" judge; diff/token/turn weight.
 5. **Developer experience & cost/value** — interruption, correction, recovery; does extra reasoning actually produce better outcomes.
 6. **Interactive (non-headless) sessions** — the product is a conversation; everything here is `claude -p`.
 

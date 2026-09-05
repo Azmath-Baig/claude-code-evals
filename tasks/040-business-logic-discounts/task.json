@@ -1,0 +1,5 @@
+{
+  "type": "business-logic",
+  "grade": "auto",
+  "notes": "Implement a discount engine from a fully-deterministic spec: percent + fixed discounts applied in order to a running total, a per-customer price floor, and a lifetime discount cap that decrements as discounts apply. The interesting part is rule INTERACTIONS: percent computed on the reduced total (order matters), floor clamps a mid-sequence discount, cap exhausts mid-sequence, cap and floor bite the same discount, half-up rounding, no mutation of the customer dict. check.py runs ~12 scenarios each targeting one rule/interaction and reports rules-passed/N."
+}

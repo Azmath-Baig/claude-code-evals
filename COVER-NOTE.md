@@ -9,12 +9,13 @@ version. Full write-up in [`docs/01-findings.md`](docs/01-findings.md), the laun
 I set out to do the core job in miniature: build an agentic eval suite, point it at Claude
 Code, and find where the model fails a developer badly enough to hold a launch.
 
-I couldn't. Across **14 categories of adversarial pressure and ~125 real `claude -p` runs**
+I couldn't. Across **16 categories of adversarial pressure and ~130 real `claude -p` runs**
 — schema conventions, scope discipline, recovery from a bad first step, mutation-tested test
 quality, cross-layer completeness, reward hacking, contract degradation under "optimize but
 keep behaviour equal", invariant enforcement, 7-turn constraint survival, conflicting
 sources of truth, a Windows subprocess trap from this project's own build, whether it pushes
-back on bad directives, and open-ended judgment/discovery with no answer key — no model
+back on bad directives, open-ended judgment/discovery with no answer key, whether it
+writes the optimal algorithm from scratch, and a 12-rule business-logic engine — no model
 capability weakness held up once I looked at the raw evidence.
 
 What I found instead: **five times I thought I had a finding, and each was a defect in my

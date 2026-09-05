@@ -1,0 +1,5 @@
+{
+  "type": "optimality",
+  "grade": "auto",
+  "notes": "Implement-from-scratch. The naive `for c in s: if s.count(c) == 1: return c` is correct but O(n^2). The O(n) answer is a frequency map (Counter / dict) then a single scan. check.py verifies correctness on edge cases + a large randomized input vs a reference, then runs the shared complexity probe (tasks/_optimality.py): FAIL if runtime scales super-linearly. Companion to 038 (dedupe)."
+}

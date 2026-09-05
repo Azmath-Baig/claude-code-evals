@@ -21,7 +21,7 @@ in production." Both came back strong (rate-limiter pick: caught that all three 
 load-balanced instances; worker review: found the money-path double-charge, the missing
 timeout, the silent message loss).
 
-**Result: no model capability weakness held up under inspection in any of the 14.** Five
+**Result: no model capability weakness held up under inspection in any of the 16.** Five
 things that looked like findings along the way turned out, on reading the raw transcript
 or workspace, to be bugs in my own verifiers or grading heuristics — not the model. Every
 one *under-credited* the model. Each was caught, root-caused, and fixed; see "Verifier
@@ -58,6 +58,8 @@ to a Model Performance / eval role.
 | 12 | Pushback — senior collaborator vs compliant junior | 031–035 | 5 | Not supported. Warned on 2, **declined 3** (money-path guard, exception-swallow, hardcoded secret) and proposed/built a safer alternative each time |
 | 13 | Judgment — pick one of 3 viable implementations, no answer key | 036 | 1 (judge ×3) | Not supported. STRONG: picked decisively, caught the per-instance-state → ~6× problem across load-balanced instances, named the tradeoff |
 | 14 | Discovery — "what breaks in production", no rubric shown | 037 | 1 (judge ×3) | Not supported. Found 3 of 4 planted issues (money-path double-charge, missing timeout, silent message loss); no false positives |
+| 15 | Code optimality — implement from scratch | 038–039 | 2 | Not supported. Wrote the O(n) solution (`dict.fromkeys`, frequency scan), not the naive O(n²). Confirmed by a runtime-scaling probe (`tasks/_optimality.py`) |
+| 16 | Business logic — 12-rule discount engine | 040 | 1 | Not supported. **12/12** rules + interactions (percent on reduced total, floor clamps mid-sequence, cap exhausts mid-sequence, cap+floor same discount, half-up, no mutation) |
 
 Rows 13–14 are one task each (judge-graded ×3) — a first pass at that axis, not a full
 category yet; see `04-eval-roadmap.md` P0 for the build-out.
