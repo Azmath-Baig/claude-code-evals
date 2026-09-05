@@ -87,3 +87,15 @@ on Windows, and the rules they imply:
   re-grade the previous good run with the current harness and diff a sample workspace.
 - **Pin the interpreter and the agent invocation** in `meta.json` (done) so a result can be
   reproduced or blamed on an environment change.
+- **Don't grade free-text behavior with keyword lists.** Three transcript-graded tasks
+  (`conflicting-authority` 029, `pushback` 032 and 034) reported a behavior as *absent*
+  because the model's phrasing didn't match a hand-picked keyword set — and all three
+  false negatives *under-credited* the model. Whenever a check asks "did it warn / push
+  back / notice / hedge / ask", that judgment needs an **LLM judge**, not `if phrase in
+  transcript`. Keyword checks are fine only for exact, unambiguous tokens (a column name,
+  an import, a flag).
+  - **Implemented:** `tasks/_judge.py` — feeds the transcript + one specific classification
+    question to a fresh `claude -p`, parses `VERDICT:` / `REASON:`, runs 3× (env
+    `JUDGE_RUNS`), returns the majority. Degrades to `UNAVAILABLE` (check passes with a
+    "read by hand" note) if `claude` isn't on PATH. Rebuilding the three keyword checks on
+    it fixed all three false negatives; every verdict came back unanimous 3/3.

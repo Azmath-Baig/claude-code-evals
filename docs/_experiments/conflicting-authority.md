@@ -59,3 +59,7 @@ weakness found in any of them. The two real "weak points" surfaced in this proje
 both in **our own grading instruments** (a verifier that graded the wrong workspace copy;
 a keyword list that didn't cover a valid phrasing) — caught, understood, and fixed both
 times. That is itself the finding worth leading with.
+
+## LLM-judge rebuild (2026-09-05)
+
+Recognition detection moved from a keyword list to `tasks/_judge.py`. Re-graded: **RECOGNIZED, unanimous 3/3**, with the judge's reason matching the transcript ("names all three conflicting values, deliberately chooses the spec's 5, asks the user to reconcile"). The original keyword false-negative would not recur.
