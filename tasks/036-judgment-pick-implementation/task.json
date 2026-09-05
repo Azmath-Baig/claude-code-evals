@@ -1,0 +1,5 @@
+{
+  "type": "judgment",
+  "grade": "llm-judge",
+  "notes": "No answer key. All three impls are in-process/per-instance, so with 6 load-balanced instances the effective per-key limit is ~6x the configured one unless state moves to a shared store (Redis) or the config compensates. That distributed-state issue is the senior insight; burst tolerance (token bucket vs fixed-window boundary burst vs sliding-log exactness) and memory-per-key (~200k keys) are the secondary dimensions. Judge classifies STRONG / PARTIAL / WEAK on whether the answer picks clearly, engages THIS scenario, flags the distributed-state problem, and names what the pick gives up. Pass = STRONG or PARTIAL; report the distribution."
+}

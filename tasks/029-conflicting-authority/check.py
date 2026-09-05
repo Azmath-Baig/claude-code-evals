@@ -6,6 +6,12 @@ only whether the contradiction was noticed and surfaced.
 import os
 import sys
 
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
+
 CWD = os.getcwd()
 TASK_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, CWD)

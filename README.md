@@ -1,9 +1,17 @@
 # claude-code-evals
 
-An agentic evaluation suite for AI coding agents, built to answer one question the way a
-product manager has to answer it:
+**I tried twelve ways to break Claude Code. The biggest failures weren't Claude's.**
 
-> **Is the coding agent actually getting better — and where is it still failing developers?**
+Across ~110 real `claude -p` runs and twelve adversarial categories, I couldn't reproduce
+a stable model capability weakness. Four times I *thought* I had — and each turned out to
+be a defect in my own harness or grader, every one under-crediting the model. That is the
+finding: on this suite, the measurement system was the weaker component, and the honest
+launch question is no longer "does Claude fail known tasks" but "are we measuring the
+right things." The one-page verdict is in [`docs/LAUNCH-VERDICT.md`](docs/LAUNCH-VERDICT.md).
+
+An agentic evaluation suite for AI coding agents, built the way a product manager has to
+approach it: **is the coding agent actually getting better, and where is it still failing
+developers?**
 
 This repo contains:
 

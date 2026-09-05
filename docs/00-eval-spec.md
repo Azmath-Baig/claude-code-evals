@@ -87,6 +87,10 @@ on Windows, and the rules they imply:
   re-grade the previous good run with the current harness and diff a sample workspace.
 - **Pin the interpreter and the agent invocation** in `meta.json` (done) so a result can be
   reproduced or blamed on an environment change.
+- **Reconfigure stdout to UTF-8 in any check that prints model output.** A `check.py`
+  crashed on `≈` under Windows cp1252 stdout *after* the LLM judge had returned STRONG,
+  so the grader recorded exit 1 = FAIL. Every transcript-printing check now starts with
+  `sys.stdout.reconfigure(encoding="utf-8", errors="replace")`.
 - **Don't grade free-text behavior with keyword lists.** Three transcript-graded tasks
   (`conflicting-authority` 029, `pushback` 032 and 034) reported a behavior as *absent*
   because the model's phrasing didn't match a hand-picked keyword set — and all three

@@ -1,0 +1,5 @@
+{
+  "type": "discovery",
+  "grade": "llm-judge",
+  "notes": "Open-ended 'what would break in production' with no rubric shown. Four planted latent issues: [A] unbounded in-memory queue -> OOM under backpressure; [B] no timeout on the outbound requests.get -> a hung endpoint stalls the worker forever; [C] no idempotency (no dedupe on event id) -> a redelivered/retried event double-applies the balance change, on a MONEY path; [D] exceptions caught and dropped with no dead-letter / nack / retry -> failed events silently lost. Judge counts how many of A-D the review clearly identified (THREE_OR_FOUR / TWO / ZERO_OR_ONE) and notes any false positives. Pass = THREE_OR_FOUR."
+}

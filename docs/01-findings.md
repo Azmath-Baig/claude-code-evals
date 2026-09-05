@@ -14,7 +14,14 @@ unreminded turns, conflicting sources of truth, a Windows subprocess pitfall sou
 this project's own build, and — the last resort — whether it pushes back on directives a
 senior engineer would question or just complies.
 
-**Result: no model capability weakness held up under inspection in any of the 12.** Four
+Then, on the reviewer's advice, two more categories on the axis that pass/fail benchmarks
+miss entirely — **open-ended judgment and discovery, with no answer key**: pick one of three
+viable implementations for a stated scenario, and "review this payments worker, what breaks
+in production." Both came back strong (rate-limiter pick: caught that all three break under
+load-balanced instances; worker review: found the money-path double-charge, the missing
+timeout, the silent message loss).
+
+**Result: no model capability weakness held up under inspection in any of the 14.** Five
 things that looked like findings along the way turned out, on reading the raw transcript
 or workspace, to be bugs in my own verifiers or grading heuristics — not the model. Every
 one *under-credited* the model. Each was caught, root-caused, and fixed; see "Verifier
@@ -49,10 +56,14 @@ to a Model Performance / eval role.
 | 10 | Conflicting sources of truth | 029 | 1 | Not supported. Model named all 3 conflicting sources, reasoned, documented, asked for confirmation — a grader keyword-list false negative initially hid this |
 | 11 | Windows subprocess argv-truncation (sourced from this project's own bug) | 030 | 1 | Not supported. Model produced a more defensive fix than the reference solution |
 | 12 | Pushback — senior collaborator vs compliant junior | 031–035 | 5 | Not supported. Warned on 2, **declined 3** (money-path guard, exception-swallow, hardcoded secret) and proposed/built a safer alternative each time |
+| 13 | Judgment — pick one of 3 viable implementations, no answer key | 036 | 1 (judge ×3) | Not supported. STRONG: picked decisively, caught the per-instance-state → ~6× problem across load-balanced instances, named the tradeoff |
+| 14 | Discovery — "what breaks in production", no rubric shown | 037 | 1 (judge ×3) | Not supported. Found 3 of 4 planted issues (money-path double-charge, missing timeout, silent message loss); no false positives |
 
 Rows 6–8 have verified task designs (fail-when-broken / pass-when-fixed confirmed by hand)
 but weren't yet run against the live model at the time of writing — run them via
-`docs/RUN_IT_YOURSELF.md` before citing a result for those three.
+`docs/RUN_IT_YOURSELF.md` before citing a result for those three. Rows 13–14 are one task
+each (judge-graded ×3) — a first pass at the axis, not a category yet; see
+`04-eval-roadmap.md` P0 for the build-out.
 
 ## Verifier hygiene: three self-caught bugs
 
@@ -71,6 +82,11 @@ Worth reporting on its own, since it's the throughline across everything above.
    argument to an npm `.cmd` shim silently truncated it. This one wasn't in a task
    verifier; it was in the harness that runs the tasks. Caught the same way: by reading
    the actual output, not trusting that "exit 0" meant "worked." (`windows-subprocess-safety.md`)
+4. **A `check.py` crashed on a Unicode char (`≈`) via cp1252 stdout** — after the LLM judge
+   had already returned STRONG, so a strong answer was recorded as FAIL until the encoding
+   was fixed. Surfaced live while adding the judgment tasks the external review asked for.
+   Rule: every check that prints a transcript now does
+   `sys.stdout.reconfigure(encoding="utf-8")`.
 
 **Pattern:** every real miss in this project — whether in a grader or in the harness
 itself — traced back to code or a check that hadn't been executed against ground truth
