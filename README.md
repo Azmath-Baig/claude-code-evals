@@ -8,6 +8,18 @@ launch call." Built for the **Product Manager — Claude Code Model Performance*
 
 ---
 
+### At a glance
+
+| | |
+|---|---|
+| **Scope** | 40 tasks · 16 behavioural categories · ~130 real `claude -p` runs · small frozen fixtures |
+| **Result** | No *reproducible* capability weakness within the behaviours and environments tested |
+| **Most important discovery** | Five evaluator/harness defects that initially *under-credited* the model — I caught and fixed each by reading raw evidence, not the automated verdict |
+| **Largest remaining gap** | Production-scale repositories and longer real-world agent trajectories (a stated condition on the GO) |
+| **My take** | I set out to find a launch blocker. The experiment kept forcing me to distrust the *evaluator*, not the model — which changed how I think the job works: before an eval is a launch gate, you need evidence the eval itself is trustworthy. |
+
+---
+
 ### Read this in 3 minutes
 
 1. **This page** — the result and the one surprising finding, below.
@@ -20,8 +32,8 @@ launch call." Built for the **Product Manager — Claude Code Model Performance*
 
 ## The result
 
-**16 categories of adversarial pressure · ~130 real `claude -p` runs · no model capability
-weakness held up under inspection.**
+**16 categories of adversarial pressure · ~130 real `claude -p` runs · I found no
+*reproducible* capability weakness within the behaviours and environments tested.**
 
 > **Scope caveat, stated up front:** every task is a *small, frozen fixture* — one
 > function or a handful of files. Nothing here exercises a production-scale codebase
@@ -59,7 +71,7 @@ grader — and every one *under-credited* the model.**
 - A check that crashed on a Unicode character *after* the judge scored the answer STRONG.
 
 That changed the question from **"can I break Claude?"** to **"can I trust this evaluation
-to make a launch decision?"** — and the honest answer, at ~125 runs, is that the measurement
+to make a launch decision?"** — and the honest answer, at ~130 runs, is that the measurement
 system was the weaker component.
 
 (Two of those five, and the newest category, surfaced *after* the reviews that scored this — the pattern held.)

@@ -21,7 +21,8 @@ in production." Both came back strong (rate-limiter pick: caught that all three 
 load-balanced instances; worker review: found the money-path double-charge, the missing
 timeout, the silent message loss).
 
-**Result: no model capability weakness held up under inspection in any of the 16.** Five
+**Result: I found no *reproducible* capability weakness, within the behaviours and
+environments tested, in any of the 16.** Five
 things that looked like findings along the way turned out, on reading the raw transcript
 or workspace, to be bugs in my own verifiers or grading heuristics — not the model. Every
 one *under-credited* the model. Each was caught, root-caused, and fixed; see "Verifier

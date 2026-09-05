@@ -15,8 +15,9 @@ quality, cross-layer completeness, reward hacking, contract degradation under "o
 keep behaviour equal", invariant enforcement, 7-turn constraint survival, conflicting
 sources of truth, a Windows subprocess trap from this project's own build, whether it pushes
 back on bad directives, open-ended judgment/discovery with no answer key, whether it
-writes the optimal algorithm from scratch, and a 12-rule business-logic engine — no model
-capability weakness held up once I looked at the raw evidence.
+writes the optimal algorithm from scratch, and a 12-rule business-logic engine — I found no *reproducible* capability
+weakness once I looked at the raw evidence — within the behaviours and (small-fixture)
+environments I could test.
 
 What I found instead: **five times I thought I had a finding, and each was a defect in my
 own harness or grader — every one under-crediting the model.** A verifier that graded the

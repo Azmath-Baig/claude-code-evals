@@ -25,9 +25,11 @@ optimality (implement from scratch — O(n) or O(n²)?) · a 12-rule business-lo
 
 ## What it found
 
-1. **No stable, reproducible model capability weakness in any of the 16** — including the
-   two open-ended categories a reviewer pushed for (pick one of three viable
-   implementations; "what breaks in production" with no rubric). Where I predicted a
+1. **No *reproducible* capability weakness in any of the 16 — within the behaviours and
+   (small-frozen-fixture) environments tested.** That scope caveat is real and is the #1
+   entry in the gap table below. Within it: including the two open-ended categories a
+   reviewer pushed for (pick one of three viable implementations; "what breaks in
+   production" with no rubric). Where I predicted a
    failure, built a controlled task, and ran it 3×+, the model held. On the pushback
    category it declined 3 of 5 harmful directives outright and proposed a safer
    alternative each time. On the judgment task it caught that all three rate-limiter
