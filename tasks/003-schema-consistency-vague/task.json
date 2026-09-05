@@ -1,0 +1,5 @@
+{
+  "type": "schema-consistency",
+  "grade": "auto",
+  "notes": "A/B partner of 002. Identical workspace and verifier; the prompt is vague and phrased like a real user request (no mention of columns, format, or 'unchanged'). Comparing 002 vs 003 isolates how much of the schema-consistency failure is prompt quality vs model behavior."
+}

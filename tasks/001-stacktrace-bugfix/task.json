@@ -1,0 +1,4 @@
+{
+  "type": "stacktrace-bugfix",
+  "notes": "Single-file logic bug reachable from a failing test. Baseline capability check: can the agent read a traceback, localize, and make a minimal correct fix without touching tests?"
+}

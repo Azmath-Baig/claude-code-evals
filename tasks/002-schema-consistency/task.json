@@ -1,0 +1,5 @@
+{
+  "type": "schema-consistency",
+  "grade": "auto",
+  "notes": "When creating a new table that mirrors an existing one, does the agent carry the existing timestamp type/format (ISO-8601 string, tz-aware) across, or introduce a silent mismatch (CURRENT_TIMESTAMP, naive datetime, epoch int)? Prompt is explicit ('unchanged', 'same columns') so a mismatch is a genuine miss, not ambiguity."
+}

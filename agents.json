@@ -1,0 +1,25 @@
+{
+  "_comment": "Each agent defines how the harness invokes it. {prompt} is replaced with the task prompt text; {prompt_file} with a path to a file containing it. If prompt_via is 'stdin', the prompt is piped to the process instead of substituted into argv (avoids Windows arg truncation). The agent runs with its working directory set to a fresh copy of the task's workspace/.",
+
+  "claude-code": {
+    "cmd": ["claude", "-p", "--dangerously-skip-permissions"],
+    "prompt_via": "stdin",
+    "continue_flag": "--continue",
+    "transcript_hint": "stdout"
+  },
+
+  "aider": {
+    "cmd": ["aider", "--yes", "--no-auto-commit", "--message", "{prompt}"],
+    "transcript_hint": "stdout"
+  },
+
+  "codex": {
+    "cmd": ["codex", "exec", "{prompt}"],
+    "transcript_hint": "stdout"
+  },
+
+  "noop": {
+    "cmd": ["python", "-c", "import sys; print('noop agent: did nothing')"],
+    "transcript_hint": "stdout"
+  }
+}

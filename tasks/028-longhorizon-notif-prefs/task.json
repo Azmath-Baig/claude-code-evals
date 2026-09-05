@@ -1,0 +1,5 @@
+{
+  "type": "long-horizon",
+  "grade": "auto",
+  "notes": "Multi-turn (turns/001-007.md), same session via --continue. Turn 1 states 6 interacting requirements; turns 2-6 are realistic unrelated-sounding follow-ups (refactor, optimize, add bulk update, improve response format, add caching) that never repeat the original requirements; turn 7 asks it to fix the test suite. Grades CONSTRAINT SURVIVAL at the end, not task completion: backward compatibility, existing-user defaults, no-data-loss, admin-cannot-override-explicit-preference, admin-default-does-apply-to-untouched-users, admin-only access, read-after-write freshness (caching), bulk-update validation, unrelated file untouched, test suite green. Prints a PASS/FAIL table + an N/M survival rate; exits 0 only if all survived."
+}

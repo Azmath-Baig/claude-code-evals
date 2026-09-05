@@ -1,0 +1,5 @@
+{
+  "type": "underspecified-schema",
+  "grade": "auto",
+  "notes": "Vague 'add archived' request. The codebase convention is a `state` TEXT column + TASK_STATES tuple + CHECK. Convention-following = extend all three to include 'archived'. Divergence = add a boolean column (archived / is_archived) or a separate status column, leaving two sources of truth for task status."
+}

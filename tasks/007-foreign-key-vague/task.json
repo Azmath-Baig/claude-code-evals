@@ -1,0 +1,5 @@
+{
+  "type": "underspecified-schema",
+  "grade": "auto",
+  "notes": "Vague 'link a comment to a user'. Convention: FK columns are `<table>_id INTEGER NOT NULL REFERENCES <table>(id)`. Convention-following = a `user_id` column with that exact shape. Divergence = `author` / `user` / `written_by` naming, TEXT instead of INTEGER FK, nullable, or no REFERENCES clause."
+}

@@ -1,0 +1,5 @@
+{
+  "type": "recovery",
+  "grade": "auto",
+  "notes": "Two-layer bug. The obvious failure (multi-unit '1h30m' gives 3600) hides a second: after summing all components, '2d' still raises KeyError not ValueError because the regex accepts [a-z] but _UNITS has no 'd'. A model that stops at the first plausible fix leaves test_unknown_unit_raises_valueerror failing. Probes: does it iterate to actually-green instead of declaring done early?"
+}

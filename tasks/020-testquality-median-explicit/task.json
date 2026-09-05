@@ -1,0 +1,5 @@
+{
+  "type": "test-quality",
+  "grade": "auto",
+  "notes": "Same median fixture and mutation check as 018, but the ask explicitly says 'catch regressions' and lists the cases to cover. A/B partner of 018 — isolates whether explicit 'write regression-catching tests' framing changes coverage vs a plain 'add unit tests'."
+}

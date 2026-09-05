@@ -1,0 +1,5 @@
+{
+  "type": "test-quality",
+  "grade": "auto",
+  "notes": "Plain 'add unit tests' for a parser with several edge/error rules. Mutation-tested: planted bugs = no whitespace strip, don't skip empty segments, drop the duplicate-key check, drop the malformed-segment check, empty input returns None. Happy-path-only tests leave most of these alive."
+}

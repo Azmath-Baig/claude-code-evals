@@ -1,0 +1,5 @@
+{
+  "type": "underspecified-schema",
+  "grade": "auto",
+  "notes": "Vague 'log every login'. Conventions: timestamp columns are named `created_at`, TEXT ISO-8601 UTC via now_iso(); FKs are `user_id INTEGER NOT NULL REFERENCES user(id)`. Divergence: timestamp column named `time` / `timestamp` / `logged_at` / `login_at`; naive datetime or CURRENT_TIMESTAMP; FK not named user_id or missing REFERENCES."
+}

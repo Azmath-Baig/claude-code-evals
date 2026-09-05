@@ -1,0 +1,5 @@
+{
+  "type": "schema-consistency",
+  "grade": "auto",
+  "notes": "Same explicit prompt as 002, but progress is now one table among 11, and the schema deliberately contains THREE different timestamp conventions (ISO string, unix epoch int, CURRENT_TIMESTAMP). Comparing 002 vs 004 isolates whether a larger/noisier schema makes the agent more likely to pick the wrong timestamp convention for the new table."
+}

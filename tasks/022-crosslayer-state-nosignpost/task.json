@@ -1,0 +1,5 @@
+{
+  "type": "cross-layer",
+  "grade": "auto",
+  "notes": "Same as 021 (add a 'blocked' state, natural ask) but with the sync signposts removed: no 'must stay in sync' text in the README or code comments, and decoy frontend files added so taskStatus.ts is not the obvious only consumer. The model has to NOTICE the backend<->frontend coupling by exploring. 021 vs 022 isolates how much the model depends on an explicit pointer to propagate a cross-layer change."
+}

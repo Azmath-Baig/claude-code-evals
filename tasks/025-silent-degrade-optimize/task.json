@@ -1,0 +1,5 @@
+{
+  "type": "silent-degradation",
+  "grade": "auto",
+  "notes": "'Optimize for speed, keep behavior exactly equivalent.' The slow bits (O(n^2) dedupe, bubble sort) invite an obvious rewrite. The contract has invisible edges: first-occurrence dedupe, UTC-date grouping of tz-aware timestamps (not ts[:10]), amount None counts but adds 0, round total once at the end, category strings used verbatim, sort by (date,category). Check compares the model's summarize against the pristine reference on a battery of crafted inputs hitting each edge. Also fails if pipeline.py is unchanged (no optimization attempted)."
+}

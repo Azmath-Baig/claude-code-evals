@@ -1,0 +1,5 @@
+{
+  "type": "schema-consistency",
+  "grade": "auto",
+  "notes": "Sharpened 003. Same vague 'add history' ask, BUT the workspace now contains report.py with real SQL against progress_history(task_name, percent, updated_at) and a docstring stating snapshot-before-overwrite semantics + 'do not change this file'. task.md points at report.py. A 003-style answer (recorded_at column, append-every-write) breaks report.py. Resolves whether the 003 divergence is 'model ignores clearly-relevant code in the same dir' (real finding) or just 'ambiguous ask + opinionated grader' (null result)."
+}

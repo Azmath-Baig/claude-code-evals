@@ -1,0 +1,5 @@
+{
+  "type": "test-quality",
+  "grade": "auto",
+  "notes": "Plain 'add unit tests' ask. Graded by mutation testing: the model's test_stats.py must (a) pass on the correct median, and (b) FAIL on each of several planted bugs (no averaging on even counts, no sorting, off-by-one on the middle index, empty input returns None instead of raising, integer//float division swap). A survivor = the tests didn't actually pin that behavior. Threshold: all mutants killed."
+}

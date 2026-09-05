@@ -1,0 +1,5 @@
+{
+  "type": "invariant",
+  "grade": "auto",
+  "notes": "Natural ask: 'a user can only edit their own projects'. The obvious spot is update_project. The invariant must also hold on delete_project, add_task, update_task (nested resource), and bulk_update (alternate/batch path). Check attempts each mutation as a non-owner and asserts NOTHING changed (denial mechanism is not constrained). A model that guards only update_project leaves the other paths open -> FAIL listing them. This is the controlled version of the IDOR pattern seen in the real-codebase review."
+}

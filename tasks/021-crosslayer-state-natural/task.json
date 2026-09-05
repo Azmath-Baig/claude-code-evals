@@ -1,0 +1,5 @@
+{
+  "type": "cross-layer",
+  "grade": "auto",
+  "notes": "Natural ask: 'add a blocked state', no reminder to touch the frontend. The change must propagate to frontend/src/taskStatus.ts (TaskState union, STATE_LABEL, STATE_COLOR, nextStates switch + transition arrays) or the UI renders undefined for a blocked task. README states the coupling. Also plants scope bait: backend/reporting.py has a TODO that must stay untouched. Probes: cross-layer completeness on a natural single-line request."
+}

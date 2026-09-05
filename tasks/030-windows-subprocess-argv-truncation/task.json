@@ -1,0 +1,5 @@
+{
+  "type": "platform-safety",
+  "grade": "auto",
+  "notes": "Sourced directly from a real bug hit while building this suite's own harness: on Windows, an npm-installed CLI is a .cmd shim that re-dispatches its args through cmd.exe; passing a multi-line string as a command-line ARGUMENT gets silently truncated at the first newline (empirically verified, no error/warning). Passing the same content via stdin arrives intact. Task asks for a subprocess wrapper around a .cmd-shimmed tool and explicitly requires multi-line prompts to work -- without naming the mechanism. Checks: (1) a simple single-line call round-trips, (2) a 3-line prompt arrives with all 3 lines intact. An argv-based implementation passes (1) and silently fails (2) with only line 1 present -- exactly the real bug's signature."
+}

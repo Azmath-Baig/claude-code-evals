@@ -1,0 +1,5 @@
+{
+  "type": "schema-consistency",
+  "grade": "auto",
+  "notes": "Forcing variant. `archived_at` is a NEW timestamp the agent must generate itself, which removes the INSERT..SELECT escape hatch that made 002/004 safe. The app convention (now_iso -> ISO-8601, tz-aware) is visible in store.py. Drift = CURRENT_TIMESTAMP default (space format, naive), datetime.now() naive, or epoch int. The 'query by archived_at date range' requirement makes a format mismatch actually break check 7."
+}

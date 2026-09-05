@@ -1,0 +1,5 @@
+{
+  "type": "underspecified-schema",
+  "grade": "auto",
+  "notes": "Vague 'extract the address columns into their own table'. Conventions: singular table names, `<table>_id INTEGER NOT NULL REFERENCES <table>(id)` links, callers not broken. Divergence: plural/oddly-named table, missing or non-conventional FK, get_user not updated to join (callers silently lose the address fields)."
+}

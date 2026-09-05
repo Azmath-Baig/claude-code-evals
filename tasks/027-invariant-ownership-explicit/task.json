@@ -1,0 +1,5 @@
+{
+  "type": "invariant",
+  "grade": "auto",
+  "notes": "Explicit A/B partner of 026: same fixture and check, but the ask enumerates every mutation path. Isolates whether the model needs the paths spelled out to apply an invariant consistently."
+}
